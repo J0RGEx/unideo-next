@@ -222,7 +222,7 @@ export async function POST(req: NextRequest) {
 
     // Enviar correo con Resend
     const { error } = await resend.emails.send({
-      from: "UNIDEO <contacto@resend.dev>",
+      from: process.env.RESEND_FROM_EMAIL ?? "hello@unideo.com.mx",
       to: ["gorthocenter@gmail.com"],
       replyTo: email,
       subject: `Nuevo mensaje de contacto — ${nombre} ${apellidos}`,
